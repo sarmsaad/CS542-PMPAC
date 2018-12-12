@@ -10,10 +10,10 @@ from sklearn.model_selection import train_test_split
 # SMOTE
 # ratio majority/minority
 def runDecisionTree(X, y, X_validation):
-    smote_1 = SMOTE(sampling_strategy=.2)
-    smote_2 = SMOTE(sampling_strategy=.3)
-    smote_3 = SMOTE(sampling_strategy=.4)
-    smote_4 = SMOTE(sampling_strategy=.5)
+    smote_1 = SMOTE(sampling_strategy=.3)
+    smote_2 = SMOTE(sampling_strategy=.4)
+    smote_3 = SMOTE(sampling_strategy=.5)
+    smote_4 = SMOTE(sampling_strategy=.6)
     X_1, y_1 = smote_1.fit_resample(X, y)
     X_2, y_2 = smote_2.fit_resample(X, y)
     X_3, y_3 = smote_3.fit_resample(X, y)
@@ -25,7 +25,7 @@ def runDecisionTree(X, y, X_validation):
         print()
         print()
         print("PREDICTION: ", i)
-        X_train, X_test, y_train, y_test = train_test_split(np.asarray(arr_X[i]), np.ravel(np.asarray(arr_y[i])), test_size=0.4)
+        X_train, X_test, y_train, y_test = train_test_split(np.asarray(arr_X[i]), np.ravel(np.asarray(arr_y[i])), test_size=0.3)
         tree.fit(X_train, y_train)
         # make predictions
         expected = y_test
@@ -41,7 +41,7 @@ def runDecisionTree(X, y, X_validation):
         kaggle_test = tree.predict(X_validation)
         print("222 patients and num of no show is ", sum(kaggle_test))
 
-    ## .5 is best
+    ## .6 is best
     X_train, X_test, y_train, y_test = train_test_split(np.asarray(arr_X[3]), np.ravel(np.asarray(arr_y[3])), test_size=0.4)
     tree.fit(X_train, y_train)
     return tree
