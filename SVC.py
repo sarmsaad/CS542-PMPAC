@@ -14,8 +14,7 @@ def runSVCrbf(X, y, X_validation):
     arr_y = [y, y_2, y_3, y_4]
     for i in range(len(arr_y)):
         print("----DATASET------", i)
-        X_train, X_test, y_train, y_test = train_test_split(np.asarray(arr_X[i]), np.ravel(np.asarray(arr_y[i])),
-                                                            test_size=0.4)
+        X_train, X_test, y_train, y_test = train_test_split(np.asarray(arr_X[i]), np.ravel(np.asarray(arr_y[i])), test_size=0.4)
         for j in range(1, 5):
             print()
             print()
@@ -70,11 +69,13 @@ def runDiagnostics(expected, predicted):
 def main():
     print("norm")
     X = np.load('xTrain_norm.npy')
+    y = np.load('yTrain.npy')
     X_val = np.load('xVal_norm.npy')
     runSVCrbf(X, y, X_val)
     runSVCLinear(X, y, X_val)
     print("MinMax")
     X = np.load('xTrain_MinMax.npy')
+    y = np.load('yTrain.npy')
     X_val = np.load('xVal_MinMax.npy')
     runSVCrbf(X, y, X_val)
     runSVCLinear(X, y, X_val)
