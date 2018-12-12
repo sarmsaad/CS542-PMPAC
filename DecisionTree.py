@@ -60,9 +60,9 @@ def visualizeTree(tree):
     graph.render("outputTree")
 
 def main():
-    X = np.load('xTrain')
-    y = np.load('yTrain')
-    X_val = np.load('xVal')
+    X = np.load('xTrain.npy')
+    y = np.load('yTrain.npy')
+    X_val = np.load('xVal.npy')
     final_tree = runDecisionTree(X, y, X_val)
     visualizeTree(final_tree)
 

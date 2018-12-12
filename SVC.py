@@ -69,13 +69,13 @@ def runDiagnostics(expected, predicted):
 
 def main():
     print("norm")
-    X = np.load('xTrain_norm')
-    X_val = np.load('xVal_norm')
+    X = np.load('xTrain_norm.npy')
+    X_val = np.load('xVal_norm.npy')
     runSVCrbf(X, y, X_val)
     runSVCLinear(X, y, X_val)
     print("MinMax")
-    X = np.load('xTrain_MinMax')
-    X_val = np.load('xVal_MinMax')
+    X = np.load('xTrain_MinMax.npy')
+    X_val = np.load('xVal_MinMax.npy')
     runSVCrbf(X, y, X_val)
     runSVCLinear(X, y, X_val)
 

@@ -112,7 +112,7 @@ def getInfo(input_X, patients, dates, birth, registration, scale):
     elif scale == "MinMax":
         scaler = MinMaxScaler()
         scaler.fit(input_X)
-        input_X = scale.transform(input_X)
+        input_X = scaler.transform(input_X)
     return input_X
 
 def getTrainingData(scale=None):

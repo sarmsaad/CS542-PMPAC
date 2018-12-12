@@ -333,9 +333,9 @@ def network(X, y, X_validation, activation):
 
 
 def main():
-    X = np.load('xTrain')
-    y = np.load('yTrain')
-    X_val = np.load('xVal')
+    X = np.load('xTrain.npy')
+    y = np.load('yTrain.npy')
+    X_val = np.load('xVal.npy')
     network(X, y, X_val, 'sigmoid')
     network(X, y, X_val, 'relu')
     network(X, y, X_val, 'tanh')
